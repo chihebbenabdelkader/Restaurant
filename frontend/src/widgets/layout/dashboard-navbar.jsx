@@ -12,6 +12,7 @@ import {
   MenuItem,
   Avatar,
 } from "@material-tailwind/react";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import {
   UserCircleIcon,
   Cog6ToothIcon,
@@ -135,21 +136,23 @@ console.log("user",user)
           ) : user ? (
             // Show user name and dropdown menu with logout
             <Menu>
-              <MenuHandler>
-                <Button
-                  variant="text"
-                  color="blue-gray"
-                  className="flex items-center gap-2 normal-case"
-                >
-                  <Avatar
-                    src={user.photo || undefined}
-                    alt={user.photo } 
-                    size="sm"
-                    variant="circular"
-                  />
-{`${user.nom} ${user.prenom}`}
-                </Button>
-              </MenuHandler>
+            <MenuHandler>
+  <Button
+    variant="text"
+    color="blue-gray"
+    className="flex items-center gap-2 normal-case"
+  >
+    <Avatar
+      src={user.photo || undefined}
+      alt={user.photo}
+      size="sm"
+      variant="circular"
+    />
+    {`${user.nom} ${user.prenom}`}
+    {/* Ajoutez l'icône ChevronDownIcon ici */}
+    <ChevronDownIcon strokeWidth={2.5} className="h-3 w-3" />
+  </Button>
+</MenuHandler>
               <MenuList>
                 <MenuItem disabled>
                   <Typography variant="small" color="blue-gray" className="font-normal">
