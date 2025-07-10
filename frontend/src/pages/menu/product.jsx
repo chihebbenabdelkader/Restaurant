@@ -45,9 +45,13 @@ export function ProductManagement() {
       const [catRes, prodRes] = await Promise.all([
         axios.get(`${baseUrl}/category`, {
           headers: { Authorization: `Bearer ${token}` },
+            withCredentials: true,  // add this line to send cookies
+
         }),
         axios.get(`${baseUrl}/product`, {
           headers: { Authorization: `Bearer ${token}` },
+            withCredentials: true,  // add this line to send cookies
+
         }),
       ]);
       setCategories(catRes.data);

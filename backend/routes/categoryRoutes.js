@@ -7,6 +7,7 @@ router.post('/category', verifyToken, categoryController.createCategory);
 router.get('/category', verifyToken, categoryController.getCategoriesByAdmin);
 router.delete('/category/:id', verifyToken, categoryController.deleteCategory);
 router.put('/category/:id', verifyToken, categoryController.updateCategory); // <-- PUT update
+router.get('/category/byAdmin/:adminId', categoryController.getPublicCategoriesByAdmin); // PAS de middleware ici
 
 module.exports = router;
 

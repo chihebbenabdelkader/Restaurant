@@ -189,7 +189,11 @@ console.log("user",user)
               </IconButton>
             </MenuHandler>
             <MenuList className="w-max border-0">
-              {/* Your notification items here */}
+              <MenuList className="w-max border-0">
+              <MenuItem>Notification 1</MenuItem>
+              <MenuItem>Notification 2</MenuItem>
+              {/* Ajoutez plus de MenuItem selon vos besoins */}
+            </MenuList>
             </MenuList>
           </Menu>
 

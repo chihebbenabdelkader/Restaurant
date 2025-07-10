@@ -26,9 +26,11 @@ export function CategoryManagement() {
 
   const fetchCategories = async () => {
     try {
-      const res = await axios.get(`${baseUrl}/category`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+   const res = await axios.get(`${baseUrl}/category`, {
+  headers: { Authorization: `Bearer ${token}` },
+  withCredentials: true,  // add this line to send cookies
+});
+
       setCategories(res.data);
     } catch (err) {
       console.error("Fetch categories failed:", err);
@@ -111,6 +113,7 @@ export function CategoryManagement() {
               </tr>
             </thead>
             <tbody>
+              
               {categories.map((cat) => (
                 <tr key={cat._id} className="border-b">
                   <td className="px-5 py-3">{cat.name}</td>

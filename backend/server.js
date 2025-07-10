@@ -19,6 +19,8 @@ app.use(
   cors({
     credentials: true,
     origin: [BACKOFFICE_DOMAIN],
+        // origin: [BACKOFFICE_DOMAIN,'http://192.168.1.143:5173','https://7f73-2c0f-f290-3080-9769-80d2-c665-23e9-547c.ngrok-free.app/'],
+
   })
 );
 console.log("BACKOFFICE_DOMAIN is:", process.env.BACKOFFICE_DOMAIN);

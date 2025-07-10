@@ -7,6 +7,7 @@ const { login} = require("../controllers/authUser");
 const register = require("../controllers/authUser").register;
 const getUserByToken = require("../controllers/authUser").getUserByToken;
 const logout = require("../controllers/authUser").logout;
+const getPublicUserDetails = require("../controllers/authUser").getPublicUserDetails;
 
 router.post("/auth/login", login);
 
@@ -14,6 +15,7 @@ router.post("/auth/register", register);
 router.post("/auth/verifToken", getUserByToken)
 router.post("/auth/logout", logout);
 
+router.get('/user/public/:userId', getPublicUserDetails);
 
 router.get("/auth/verify-email/:tok", async(req,res,next) => {
   try{
@@ -39,6 +41,8 @@ router.get("/auth/verify-email/:tok", async(req,res,next) => {
     console.log(error)
   }
 } );
+
+
 
 
 module.exports = router;

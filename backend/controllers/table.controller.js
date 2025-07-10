@@ -41,6 +41,8 @@ exports.createTable = async (req, res) => {
         restaurantId: restaurantId || null,
         // qrCodeUrl sera généré plus tard, ou vous pouvez le faire ici
         qrCodeUrl: `http://localhost:5173/public-menu/${adminId}/${tableNumber}`,
+        // qrCodeUrl: `http://192.168.1.143:5001/api/public-menu/${adminId}/${tableNumber}`,
+
       });
       await newTable.save();
       createdTables.push(newTable);

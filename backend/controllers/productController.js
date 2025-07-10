@@ -75,6 +75,16 @@ exports.updateProduct = async (req, res) => {
   }
 };
 
+exports.getPublicProductsByAdmin = async (req, res) => {
+  try {
+    const { adminId } = req.params; // adminId vient de l'URL ici
+    const products = await Product.find({ adminId }).populate('categoryId').populate('adminId');
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 
 
 

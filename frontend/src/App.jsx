@@ -6,6 +6,8 @@ import { Routes, Route } from "react-router-dom";
 import { Dashboard ,Menu} from "@/layouts";
 import ProtectedRoute from "./context/protectedRoute";
 import { SignIn, SignUp } from "./pages/auth";
+import { MenuView } from "./pages/menu/menu";
+import { MenuViewAdmin } from "./pages/menu/menuAdmin";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -57,6 +59,8 @@ function App() {
       />
        {/* PUBLIC MENU ROUTE — NO PROTECTION */}
       <Route path="/menu/*" element={<Menu />} />
+       <Route path="/public-menu/:adminId/:tableNumber" element={<MenuView />} />
+
 
 
       <Route path="*" element={<SignIn />} />

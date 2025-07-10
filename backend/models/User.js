@@ -14,7 +14,7 @@ var userSchema = new mongoose.Schema(
       type: String,
      
      },
-    username: {
+    restauName: {
       type: String,
       required: false,
     },

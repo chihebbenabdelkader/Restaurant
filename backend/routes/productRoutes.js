@@ -42,6 +42,7 @@ router.get('/product', verifyToken, productController.getProductsByAdmin);
 router.delete('/product/:id', verifyToken, productController.deleteProduct);
 // router.put('/product/:id', verifyToken, productController.updateProduct); // <-- PUT update
 
+router.get('/product/byAdmin/:adminId', productController.getPublicProductsByAdmin); // PAS de middleware ici
 
 
 module.exports = router;

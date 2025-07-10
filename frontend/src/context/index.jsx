@@ -33,7 +33,7 @@ export function reducer(state, action) {
 export function MaterialTailwindControllerProvider({ children }) {
   const initialState = {
     openSidenav: false,
-    sidenavColor: "dark",
+    sidenavColor: "blue-gray", // <-- CORRECTION ICI : Remplacez "dark" par une couleur valide
     sidenavType: "white",
     transparentNavbar: true,
     fixedNavbar: false,

@@ -17,4 +17,32 @@ router.put('/table/:id', authMiddleware.requireSignIn, authMiddleware.isAdmin, t
 // Supprimer une table spécifique par son ID
 router.delete('/table/:id', authMiddleware.requireSignIn, authMiddleware.isAdmin, tableController.deleteTable);
 
+router.get('/public-menu/:adminId/:tableNumber', async (req, res) => {
+  const { adminId, tableNumber } = req.params;
+
+  try {
+    // Exemple: récupérer la table avec adminId et tableNumber
+    const table = await tableController.getTableByAdminAndNumber(adminId, tableNumber);
+    if (!table) {
+      return res.status(404).send("Table not found");
+    }
+
+    // Ici, tu peux envoyer une page HTML, ou rediriger, ou envoyer des données JSON.
+    // Exemple simple d'envoi JSON :
+    res.json({
+      message: "Public menu page",
+      adminId,
+      tableNumber,
+      table
+    });
+
+    // Si tu as un frontend pour la page public-menu, tu peux rendre un template ou rediriger
+    // res.render('publicMenuPage', { adminId, tableNumber, table });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server error");
+  }
+});
+
 module.exports = router;

@@ -54,6 +54,16 @@ exports.updateCategory = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+exports.getPublicCategoriesByAdmin = async (req, res) => {
+  try {
+    const { adminId } = req.params; // adminId vient de l'URL ici
+    const categories = await Category.find({ adminId });
+    res.json(categories);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 
 
 

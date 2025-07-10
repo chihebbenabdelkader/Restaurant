@@ -9,7 +9,7 @@ import {
   RectangleStackIcon,
 } from "@heroicons/react/24/solid";
 import { Home, Profile, Tables, Notifications, AddUser,Users } from "@/pages/dashboard";
-import {  CategoryManagement,ProductManagement,MenuView} from "@/pages/menu";
+import {  CategoryManagement,ProductManagement,MenuView,MenuViewAdmin} from "@/pages/menu";
 import { SignIn, SignUp } from "@/pages/auth";
 
 const icon = {
@@ -74,10 +74,17 @@ export const routes = [
   {
       icon: <PlusIcon {...icon} />,
       name: "menu",
-      path: "/menu", // no leading slash
-      element: <MenuView />,
+      path: "/menuAdmin", // no leading slash
+      element: <MenuViewAdmin />,
       roles: ["admin"],
     },
+    //   {
+    //   icon: <PlusIcon {...icon} />,
+    //   name: "menu",
+    //   path: "/menu", // no leading slash
+    //   element: <MenuView />,
+    //   roles: ["admin"],
+    // },
     
   ],
 }

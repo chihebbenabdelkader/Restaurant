@@ -827,3 +827,28 @@ exports.logout = async (req, res) => {
     return res.status(400).json({ message: "Logout failed" });
   }
 };
+
+
+exports.getPublicUserDetails = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const user = await User.findById(userId)
+      .select("nom prenom username photo restauName role")
+      .exec();
+
+    if (!user) {
+      return res.status(404).json({ message: 'Utilisateur non trouvé.' });
+    }
+
+    if (user.role !== 'admin') {
+      return res.status(403).json({ message: 'Accès non autorisé à ces détails.' });
+    }
+
+    res.status(200).json(user);
+  } catch (err) {
+    console.error("Erreur lors de la récupération des détails de l'utilisateur public:", err);
+    res.status(500).json({ message: "Erreur serveur lors de la récupération des détails de l'utilisateur." });
+  }
+};
+
+
